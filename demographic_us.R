@@ -1,6 +1,6 @@
 library(tidyverse)
 
-setwd("/Users/evanluo/Dropbox/My Mac (Evans-MacBook-Pro.local)/Desktop/small-projects-data-set")
+setwd() # set the working directiory 
 df_raw <- read_csv("chsi_dataset_DEMOGRAPHICS.csv")
 
 df_clean <- df_raw %>% 
@@ -16,6 +16,7 @@ df_clean <- df_raw %>%
 
 glimpse(df_clean)
 
+# pivot wide to long
 df_long <- df_clean %>% 
   pivot_longer(cols=starts_with("Age"),names_to="age_range",values_to="age_percent") %>% 
   pivot_longer(cols=c("White","Black","Native_American","Asian","Hispanic"),names_to="race_type",values_to="race_percent")  
